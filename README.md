@@ -31,9 +31,11 @@ with open('./coco.names','r') as namefile:
 ```python
 image_path = input("Path of IMAGE you want to detect object?(./filename.jpg)")
 img = cv2.imread(image_path)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ```
 - **image_path**: Prompts the user to input the path of the image they want to analyze.
 - **cv2.imread(image_path)**: Reads the image from the provided path and stores it in the variable `img`.
+- **cv2.cvtColor(img, cv2.COLOR_BGR2RGB)**: `cv2.cvtColor(img, cv2.COLOR_BGR2RGB)` converts an image from BGR to RGB color space.
 
 ```python
 blob = cv2.dnn.blobFromImage(img, 1/255, (416,416), (0,0,0), swapRB=True, crop=False)
